@@ -1,0 +1,19 @@
+
+//node js single threading , event loop , callback , non-blocking  ,  api's web server =>
+
+//repl => read evaluate print loop
+
+// es6 module => import createstore form 'redux"
+// export default createsotre
+//node node package manager =>
+
+//common js module
+
+console.log(process.argv[1]);
+
+//types of dependencies
+//regular dependencies
+
+//developer dependencies
+
+//global dependencies
