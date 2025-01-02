@@ -1,0 +1,19 @@
+http 
+  client-server model
+     request=response cycle 
+        request - 
+                 http methods , url , headers , body
+        response - 
+                status code , headers , body
+    http methods 
+    http statusCode
+
+
+
+    client => browser => url  <= requested the resoucre
+    server => on 24*7 => restcountries.com/all => function => data response
+
+    => request  => client => {
+        methods : GEt , put , delete
+    }
+    => response => server => {}

@@ -71,6 +71,8 @@ console.log(fileData);
 //TODO PATH.RESOLVE() ;
 
 const resolveEg = path.resolve('folder', 'user', 'node');
+
+
 const joinEg = path.join('folder', 'user', 'node');
 
 console.log(chalk.red(resolveEg));
