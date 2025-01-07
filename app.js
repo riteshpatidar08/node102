@@ -30,8 +30,12 @@ const fs = require('fs')
 //     res.end(countriesData)
 // })
 
+
+
 const homeData = fs.readFileSync('./home.html','utf-8')
+
 console.log(homeData)
+
 const server = http.createServer((req,res)=>{
     console.log(req.url)
 
