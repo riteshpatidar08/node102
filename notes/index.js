@@ -66,18 +66,14 @@ console.log(filePath);
 
 const fileData = fs.readFileSync(filePath, 'utf-8');
 
-console.log(fileData); 
+console.log(fileData);
 
 //TODO PATH.RESOLVE() ;
 
 const resolveEg = path.resolve('folder', 'user', 'node');
-
 
 const joinEg = path.join('folder', 'user', 'node');
 
 console.log(chalk.red(resolveEg));
 
 console.log(chalk.green(joinEg));
-
-
-

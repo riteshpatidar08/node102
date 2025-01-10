@@ -1,0 +1,127 @@
+[
+    {
+        "name": "Laptop",
+        "category": "Electronics",
+        "price": 1000,
+        "stock": 50,
+        "description": "High performance laptop",
+        "tags": [
+            "gaming",
+            "work"
+        ],
+        "brand": "TechBrand",
+        "processor": "Intel i7",
+        "screenSize": "15.6 inches"
+    },
+    {
+        "name": "Smartphone",
+        "category": "Electronics",
+        "price": 500,
+        "stock": 150,
+        "description": "Latest model smartphone with excellent camera",
+        "tags": [
+            "mobile",
+            "camera"
+        ],
+        "brand": "SmartTech",
+        "camera": "48MP",
+        "battery": "4000mAh",
+        "processor": "Snapdragon 888"
+    },
+    {
+        "name": "Headphones",
+        "category": "Accessories",
+        "price": 150,
+        "stock": 200,
+        "description": "Noise-cancelling over-ear headphones",
+        "tags": [
+            "audio",
+            "comfort"
+        ],
+        "brand": "AudioPlus",
+        "battery": "20 hours",
+        "connection": "Wireless",
+        "noiseCancellation": true
+    },
+    {
+        "name": "Smartwatch",
+        "category": "Wearables",
+        "price": 250,
+        "stock": 120,
+        "description": "Smartwatch with health tracking features",
+        "tags": [
+            "fitness",
+            "technology"
+        ],
+        "brand": "FitTrack",
+        "screenSize": "1.4 inches",
+        "battery": "7 days",
+        "heartRateMonitor": true,
+        "waterResistance": "50m"
+    },
+    {
+        "name": "T-shirt",
+        "category": "Clothing",
+        "price": 20,
+        "stock": 300,
+        "description": "Comfortable cotton t-shirt",
+        "tags": [
+            "casual",
+            "fashion"
+        ],
+        "brand": "StyleWear",
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "material": "Cotton",
+        "fit": "Regular"
+    },
+    {
+        "name": "Coffee Maker",
+        "category": "Appliances",
+        "price": 80,
+        "stock": 100,
+        "description": "Automatic coffee maker with programmable features",
+        "tags": [
+            "coffee",
+            "appliance"
+        ],
+        "brand": "BrewMaster",
+        "material": "Stainless Steel",
+        "capacity": "12 cups",
+        "programmable": true
+    },
+    {
+        "name": "Blender",
+        "category": "Appliances",
+        "price": 50,
+        "stock": 80,
+        "description": "High-speed blender for smoothies and soups",
+        "tags": [
+            "kitchen",
+            "appliance"
+        ],
+        "brand": "BlendPro",
+        "power": "500W",
+        "capacity": "1.5L",
+        "speeds": 3
+    },
+    {
+        "name": "Air Conditioner",
+        "category": "Home Appliances",
+        "price": 350,
+        "stock": 45,
+        "description": "Energy-efficient air conditioner",
+        "tags": [
+            "cooling",
+            "home"
+        ],
+        "brand": "CoolAir",
+        "capacity": "12000 BTU",
+        "energyEfficiency": "A++",
+        "color": "White"
+    }
+]

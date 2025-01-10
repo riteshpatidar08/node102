@@ -1,0 +1,9 @@
+mongodb -- nosql
+Database 
+    -- collection 
+               ---Document 
+                        ---BSON =< objectId , floating
+                            --- field 
+                               ----query 
+                                    --- _id Field 
+                                           ----crud

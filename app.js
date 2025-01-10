@@ -1,61 +1,69 @@
-const http = require('http') ;
-const fs = require('fs')
+const express = require('express');
+const mongoose = require('mongoose');
+const app = express();
+const fs = require('fs');
+mongoose
+  .connect('mongodb://localhost:27017/mongoosedb')
+  .then(() => {
+    console.log('Database is successfull');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
+//defining the schema
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  age: {
+    type: Number,
+  },
+});
 
-// const EventEmitter = require('events') ;
+//NOTE model === collection
 
-// const myEvent = new EventEmitter() ;
+const User = mongoose.model('user', UserSchema);
 
-// console.log(myEvent)
-
-// myEvent.on("sale", (productname, price)=>{
-//     console.log(`sale is made ${productname} : ${price} `)
+///creating a new document
+// const newUser = new User({
+//     name : "Ritesh",
+//     email : "ritesh@gmail.com",
+//     age : 27
 // })
 
-// setTimeout(()=>{
-// myEvent.emit('sale' ,'laptop',3000)
-// },5000)
-
-
-//NOTE pattern eventEmiiter pattern observable pattern 
-
-
-
-
-// const server = http.createServer((req,res)=>{
-//     const countriesData = fs.readFileSync('./countries.txt' , 'utf-8') ;
-//     console.log(req.url)
-//    res.statusCode = 200
-//     // res.writeHead(201)
-//     res.end(countriesData)
+// newUser.save().then((data)=>{
+//     console.log('.....newdata',data)
 // })
 
+const body = {
+  name: 'riteshpatidar@gmail.com',
+  email: 'lakshit@gmail.com',
+  age: 20,
+};
 
 
-const homeData = fs.readFileSync('./home.html','utf-8')
+//NOTE Create Method
+User.create(body)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-console.log(homeData)
-
-const server = http.createServer((req,res)=>{
-    console.log(req.url)
-
-    if(req.url === '/home'){
-        res.writeHead(200,{
-            'Content-Type': "text/html"
-        })
-        res.end(homeData)
-    }else{
-        res.end("my website")
-    }
-})
+//NOTE READ FIND() METHOD
+//operator $gt , $lt , $gte , $lte
+User.find({ age: { $gt: 20 } }).then((data) =>
+  fs.writeFileSync('./age.json', JSON.stringify(data))
+);
 
 
-server.listen(5000,()=>{
-    console.log('server is running')
-})
-
-
-
-server.on('request',()=>{
-    console.log('req made')
-})
+app.listen(3000, () => {
+  console.log('server is running');
+});
