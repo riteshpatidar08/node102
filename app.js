@@ -2,6 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const fs = require('fs');
+const {createUser , getAllUser} = require('./controllers/userControllers')
+
+
+// {
+//     createUser : ()=>{} ,
+//     getAllUser : ()=>{}
+// }
+
 
 app.use(express.json());
 
@@ -15,23 +23,7 @@ mongoose
   });
 
 //defining the schema
-const UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    unique: true,
-  },
-  age: {
-    type: Number,
-  },
-});
 
-//NOTE model === collection
-
-const User = mongoose.model('user', UserSchema);
 
 ///creating a new document
 // const newUser = new User({
@@ -65,39 +57,10 @@ const User = mongoose.model('user', UserSchema);
 //API a create User
 
 //data bhjna hain => post
-const createUser = async (req, res) => {
-  const { name, email, age } = req.body;
-  //data validation in the backend
-  const userData = {
-    name: name.trim(),
-    age,
-    email,
-  };
-  const newUser = await User.create(userData);
-  res.status(201).json({
-    newUser,
-  });
-}
-app.post('/createuser', createUser );
 
+// app.post('/createuser', createUser);
 //get all users api
-app.get('/users', async (req, res) => {
-  const { age } = req.query;
-  try {
-    const users = await User.find({ age: { $eq: age } });
-    if (!users) {
-      return res.status(404).json({
-        message: 'No users found , Please try again',
-      });
-    }
-    const totalUsers = await User.countDocuments();
-    res.status(200).json({
-      totalUsers,
-      length: users.length,
-      data: users,
-    });
-  } catch (error) {}
-});
+// app.get('/users',getAllUser);
 
 app.get('/users/:id', async (req, res) => {
   try {
