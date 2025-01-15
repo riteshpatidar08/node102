@@ -1,10 +1,10 @@
 //express ko require
-const express = require('express') ;
+const express = require('express');
 //express.Router() ;
-const {createUser} = require('./../controllers/userControllers')
-const userRoutes = express.Router() ;
+const { createUser } = require('./../controllers/userControllers');
+const userRoutes = express.Router();
 
-userRoutes.post('/createuser' ,createUser)
-userRoutes.post('/deleteuser' ,createUser)
+userRoutes.post('/createuser', createUser);
 
-module.exports = userRoutes ;
+
+module.exports = userRoutes;

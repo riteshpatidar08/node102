@@ -1,8 +1,7 @@
-const User = require('../models/userModel')
+const User = require('../models/userModel');
 
 exports.createUser = async (req, res) => {
   const { name, email, age } = req.body;
-  //data validation in the backend
   const userData = {
     name: name.trim(),
     age,
@@ -14,7 +13,7 @@ exports.createUser = async (req, res) => {
   });
 };
 
-exports.getAllUser =  async (req, res) => {
+exports.getAllUser = async (req, res) => {
   const { age } = req.query;
   try {
     const users = await User.find({ age: { $eq: age } });
@@ -30,5 +29,4 @@ exports.getAllUser =  async (req, res) => {
       data: users,
     });
   } catch (error) {}
-}
-
+};

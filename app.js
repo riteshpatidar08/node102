@@ -2,14 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const fs = require('fs');
-const {createUser , getAllUser} = require('./controllers/userControllers')
-
-
-// {
-//     createUser : ()=>{} ,
-//     getAllUser : ()=>{}
-// }
-
+const User = require('./models/userModel.js');
+const UserRoutes = require('./routes/userRoutes.js');
+const { createUser } = require('./controllers/userControllers.js');
+const upload = require('./middleware/upload.js');
 
 app.use(express.json());
 
@@ -22,45 +18,8 @@ mongoose
     console.log(err);
   });
 
-//defining the schema
-
-
-///creating a new document
-// const newUser = new User({
-//     name : "Ritesh",
-//     email : "ritesh@gmail.com",
-//     age : 27
-// })
-
-// newUser.save().then((data)=>{
-//     console.log('.....newdata',data)
-// })
-
-//
-
-//NOTE Create Method
-// User.create(body)
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-//NOTE READ FIND() METHOD
-
-//operator $gt , $lt , $gte , $lte
-// User.find({ age: { $gt: 20 } }).then((data) =>
-//   fs.writeFileSync('./age.json', JSON.stringify(data))
-// );
-
-//API a create User
-
-//data bhjna hain => post
-
-// app.post('/createuser', createUser);
-//get all users api
-// app.get('/users',getAllUser);
+//middleware
+app.use('/api/v1', UserRoutes);
 
 app.get('/users/:id', async (req, res) => {
   try {
@@ -113,3 +72,38 @@ app.listen(3000, () => {
 // findByIdandUpate();
 
 // updateOne({age : {$set}})
+
+//defining the schema
+
+///creating a new document
+// const newUser = new User({
+//     name : "Ritesh",
+//     email : "ritesh@gmail.com",
+//     age : 27
+// })
+
+// newUser.save().then((data)=>{
+//     console.log('.....newdata',data)
+// })
+
+//
+
+//NOTE Create Method
+// User.create(body)
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+//NOTE READ FIND() METHOD
+
+//operator $gt , $lt , $gte , $lte
+// User.find({ age: { $gt: 20 } }).then((data) =>
+//   fs.writeFileSync('./age.json', JSON.stringify(data))
+// );
+
+//API a create User
+
+//data bhjna hain => post
